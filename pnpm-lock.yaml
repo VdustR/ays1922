@@ -5,7 +5,6 @@ specifiers:
   '@testing-library/jest-dom': ^5.11.4
   '@testing-library/react': ^11.1.0
   '@testing-library/user-event': ^12.1.10
-  '@types/dom-to-image': ^2.6.2
   '@types/file-saver': ^2.0.2
   '@types/jest': ^26.0.15
   '@types/lodash': ^4.14.170
@@ -14,8 +13,8 @@ specifiers:
   '@types/react': ^17.0.0
   '@types/react-dom': ^17.0.0
   '@types/react-router-dom': ^5.1.7
-  dom-to-image: ^2.6.0
   file-saver: ^2.0.5
+  html-to-image: ^1.6.2
   lodash: ^4.17.21
   qrcode: ^1.4.4
   react: ^17.0.2
@@ -30,14 +29,13 @@ dependencies:
   '@testing-library/jest-dom': 5.12.0
   '@testing-library/react': 11.2.7_react-dom@17.0.2+react@17.0.2
   '@testing-library/user-event': 12.8.3
-  '@types/dom-to-image': 2.6.2
   '@types/file-saver': 2.0.2
   '@types/jest': 26.0.23
   '@types/node': 12.20.13
   '@types/react': 17.0.6
   '@types/react-dom': 17.0.5
-  dom-to-image: 2.6.0
   file-saver: 2.0.5
+  html-to-image: 1.6.2
   lodash: 4.17.21
   qrcode: 1.4.4
   react: 17.0.2
@@ -2117,10 +2115,6 @@ packages:
     resolution: {integrity: sha512-Vs0hm0vPahPMYi9tDjtP66llufgO3ST16WXaSTtDGEl9cewAl3AibmxWw6TINOqHPT9z0uABKAYjT9jNSg4npw==}
     dependencies:
       '@babel/types': 7.14.2
-    dev: false
-
-  /@types/dom-to-image/2.6.2:
-    resolution: {integrity: sha512-Yxbwmz/glNwRIXfBI8efG2bgIxrFAKV1MdfpqbUDq25ULMot7U7FYXPiso5G8DlBExSP+AakuG0mNus9yw4RZQ==}
     dev: false
 
   /@types/eslint/7.2.11:
@@ -4563,10 +4557,6 @@ packages:
       entities: 2.2.0
     dev: false
 
-  /dom-to-image/2.6.0:
-    resolution: {integrity: sha1-ilA2CAiMh7HCL5A0rgMuGJiVWGc=}
-    dev: false
-
   /domain-browser/1.2.0:
     resolution: {integrity: sha512-jnjyiM6eRyZl2H+W8Q/zLMA481hzi0eszAaBUzIVnmYVDBbnLxVNnfu1HgEBvCbL+71FrxMl3E6lpKH7Ge3OXA==}
     engines: {node: '>=0.4', npm: '>=1.2'}
@@ -5951,6 +5941,10 @@ packages:
       param-case: 3.0.4
       relateurl: 0.2.7
       terser: 4.8.0
+    dev: false
+
+  /html-to-image/1.6.2:
+    resolution: {integrity: sha512-X6X7wJW2KQ+AGqMeBITdntCcQnxBgZY62MdGOi042Y70+0SMe8/iJCzUv8RNaUoXqUjWw5FPyoTDmdGoapTQIQ==}
     dev: false
 
   /html-webpack-plugin/4.5.0_webpack@4.44.2:

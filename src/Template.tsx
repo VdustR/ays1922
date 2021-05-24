@@ -1,6 +1,6 @@
 import { css, cx } from "@emotion/css";
-import domtoimage from "dom-to-image";
 import { saveAs } from "file-saver";
+import { toBlob } from "html-to-image";
 import chunk from "lodash/chunk";
 import QRCode from "qrcode";
 import { useEffect, useMemo, useRef, useState } from "react";
@@ -18,7 +18,6 @@ const cssBgFrame = css`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-left: auto;
   margin-right: auto;
   margin-top: 0px;
 `;
@@ -168,8 +167,12 @@ function App({
         }}
         onKeyPress={(e) => {
           if (!fill || !refEl.current || e.key !== "Enter") return;
-          domtoimage.toBlob(refEl.current).then(function (blob) {
-            saveAs(blob, "sms-real-name.png");
+          toBlob(refEl.current, { pixelRatio: 1.5 }).then(function (blob) {
+            if (!blob) {
+              alert("Blob missing");
+              return;
+            }
+            saveAs(blob, "ays1922.png");
           });
         }}
         maxLength={18}
