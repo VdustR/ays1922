@@ -7,32 +7,35 @@ import v2Zh from "./v2/zh.jpeg";
 
 function Home() {
   return (
-    <ul>
-      <li>
-        <a
-          href="https://github.com/VdustR/ays1922#readme"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          介紹
-        </a>
-      </li>
-      <li>
-        <NavLink target="_blank" rel="noopener noreferrer" to="/v2/zh">
-          v2 - 中文
-        </NavLink>
-      </li>
-      <li>
-        <NavLink target="_blank" rel="noopener noreferrer" to="/v1/zh">
-          v1 - 中文
-        </NavLink>
-      </li>
-      <li>
-        <NavLink target="_blank" rel="noopener noreferrer" to="/v1/zh">
-          v1 - 英文
-        </NavLink>
-      </li>
-    </ul>
+    <>
+      <h1>AnonYmouS 1922 簡訊實聯制海報產生器</h1>
+      <ul>
+        <li>
+          <a
+            href="https://github.com/VdustR/ays1922#readme"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            介紹
+          </a>
+        </li>
+        <li>
+          <NavLink target="_blank" rel="noopener noreferrer" to="/v2/zh">
+            v2 - 中文
+          </NavLink>
+        </li>
+        <li>
+          <NavLink target="_blank" rel="noopener noreferrer" to="/v1/zh">
+            v1 - 中文
+          </NavLink>
+        </li>
+        <li>
+          <NavLink target="_blank" rel="noopener noreferrer" to="/v1/zh">
+            v1 - 英文
+          </NavLink>
+        </li>
+      </ul>
+    </>
   );
 }
 
