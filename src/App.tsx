@@ -30,7 +30,7 @@ function Home() {
           </NavLink>
         </li>
         <li>
-          <NavLink target="_blank" rel="noopener noreferrer" to="/v1/zh">
+          <NavLink target="_blank" rel="noopener noreferrer" to="/v1/en">
             v1 - 英文
           </NavLink>
         </li>
