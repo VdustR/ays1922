@@ -12,9 +12,9 @@
   - Windows & Linux: <kbd>Ctrl</kbd> + <kbd>p</kbd>
 - 或是在場所代碼輸入框中按 <kbd>enter</kbd> 另存儲存圖片
 
-Reference:
+## Reference
 
-- 素材: <https://www.plurk.com/p/odcph2>
+- 素材: <https://www.plurk.com/p/odcph2> by [AYS 可愛生活伴侶插圖設計](https://www.facebook.com/AYS626)
 - Python 版(by [BenjaminChai](https://github.com/BenjaminChai), [ytsuytsu](https://github.com/ytsuytsu)): <https://github.com/BenjaminChai/BenjaminChai-SMS_realname_registration_poster_generator->
 
 感謝 [AnonYmouS](https://www.plurk.com/AnonYmouS626), [BenjaminChai](https://github.com/BenjaminChai), [ytsuytsu](https://github.com/ytsuytsu)
