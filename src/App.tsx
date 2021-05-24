@@ -81,7 +81,7 @@ function App() {
               top: 998px;
               left: 67px;
               width: 164px;
-              height: 46px;
+              height: 47px;
             `}
             classNameCount={css`
               top: 1011px;
