@@ -29,6 +29,8 @@ jobs:
           run_install: true
       - name: Build
         run: pnpm run build
+      - name: Fallback
+        run: cp ./build/index.html ./build/404.html
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
