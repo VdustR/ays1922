@@ -1,0 +1,66 @@
+{
+  "name": "ays1922",
+  "version": "0.1.0",
+  "private": true,
+  "homepage": "https://vdustr.github.io/ays1922",
+  "bugs": {
+    "url": "https://github.com/VdustR/ays1922/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/VdustR/ays1922.git"
+  },
+  "license": "MIT",
+  "author": "VdustR <vdustr@gmail.com> (https://vdustr.github.io/)",
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "dependencies": {
+    "@emotion/css": "^11.1.3",
+    "@testing-library/jest-dom": "^5.11.4",
+    "@testing-library/react": "^11.1.0",
+    "@testing-library/user-event": "^12.1.10",
+    "@types/dom-to-image": "^2.6.2",
+    "@types/file-saver": "^2.0.2",
+    "@types/jest": "^26.0.15",
+    "@types/node": "^12.0.0",
+    "@types/react": "^17.0.0",
+    "@types/react-dom": "^17.0.0",
+    "dom-to-image": "^2.6.0",
+    "file-saver": "^2.0.5",
+    "lodash": "^4.17.21",
+    "qrcode": "^1.4.4",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-router-dom": "^5.2.0",
+    "react-scripts": "4.0.3",
+    "typescript": "^4.1.2",
+    "web-vitals": "^1.0.1"
+  },
+  "devDependencies": {
+    "@types/lodash": "^4.14.170",
+    "@types/qrcode": "^1.4.0",
+    "@types/react-router-dom": "^5.1.7"
+  }
+}
