@@ -3,7 +3,8 @@ import { saveAs } from "file-saver";
 import { toBlob } from "html-to-image";
 import chunk from "lodash/chunk";
 import QRCode from "qrcode";
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
+import { useHistory, useParams } from "react-router-dom";
 import escapeHtml from "utils/escape";
 
 const cssFrame = css`
@@ -117,8 +118,22 @@ function App({
   classNameSmsText,
   classNameCount,
 }: AppProps) {
-  const refEl = useRef<HTMLDivElement | null>(null);
-  const [locationCode, setLocationCode] = useState("");
+  const history = useHistory();
+  const { locationCode: cleanLocationCode } =
+    useParams<{ locationCode: string }>();
+  useEffect(() => {
+    if (cleanLocationCode.length !== 15) {
+      alert("請輸入正確的場所代碼");
+      history.replace("/");
+    }
+  }, [cleanLocationCode.length, history]);
+  const locationCode = useMemo(
+    () =>
+      chunk(cleanLocationCode.replace(/\s/g, "").split(""), 4)
+        .map((arr) => arr.join(""))
+        .join(" "),
+    [cleanLocationCode]
+  );
   const fill = locationCode.length === 18;
   const smsText = useMemo(
     () => (fill ? `場所代碼: ${locationCode}\n${message}` : ""),
@@ -150,39 +165,27 @@ function App({
     });
   }, [fill, smsText]);
   return (
-    <div className={cssFrame} ref={refEl}>
+    <div
+      className={cssFrame}
+      onClick={(e) => {
+        if (!fill) return;
+        toBlob(e.currentTarget, { pixelRatio: 1.5 }).then(function (blob) {
+          if (!blob) {
+            alert("Blob missing");
+            return;
+          }
+          saveAs(blob, outFileName);
+          // history.replace(`/h/${cleanLocationCode}`);
+        });
+      }}
+    >
       <div className={cssBgFrame}>
         {url ? (
           <img className={cx(cssQrCode, classNameQrCode)} src={url} alt="" />
         ) : null}
       </div>
       <div className={cx(cssCount, classNameCount)}>{smsText.length}/70</div>
-      <input
-        className={cx(cssShopCode, classNameShopCode)}
-        value={locationCode}
-        onChange={(e) => {
-          const str = chunk(e.target.value.replace(/\s/g, "").split(""), 4)
-            .map((arr) => arr.join(""))
-            .join(" ");
-          setLocationCode(str);
-        }}
-        onBlur={() => {
-          setLocationCode((code) => code.trim());
-        }}
-        onKeyPress={(e) => {
-          if (!fill || !refEl.current || e.key !== "Enter") return;
-          toBlob(refEl.current, { pixelRatio: 1.5 }).then(function (blob) {
-            if (!blob) {
-              alert("Blob missing");
-              return;
-            }
-            saveAs(blob, outFileName);
-          });
-        }}
-        maxLength={18}
-        placeholder="請由此輸入"
-        autoFocus
-      />
+      <div className={cx(cssShopCode, classNameShopCode)}>{locationCode}</div>
       {/* eslint-disable-next-line react/no-danger-with-children */}
       <div
         className={cx(cssSmsText, classNameSmsText)}
