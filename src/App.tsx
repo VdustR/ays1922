@@ -44,7 +44,7 @@ function Home() {
       className={css`
         padding: 1em;
         max-width: 500px;
-        margin-left: auto;
+        margin-left: 2em;
         margin-right: auto;
       `}
     >
@@ -81,7 +81,14 @@ function Home() {
         </li>
         {fill ? (
           <li>
-            {"選擇模板後列印或直接左鍵點擊海報可以另存圖片(可能會延遲 2~3 秒)"}
+            {"選擇模板後列印"}
+            <div
+              className={css`
+                font-size: 0.8em;
+              `}
+            >
+              或是左鍵點擊海報可以另存圖片(可能會延遲 2~3 秒)
+            </div>
             <ul>
               <Link title="v2 - 中文" link={`/v2/zh/${cleanLocationCode}`} />
               <li>
@@ -113,7 +120,15 @@ function Home() {
               </li>
             </ul>
           </li>
-        ) : null}
+        ) : (
+          <li
+            className={css`
+              color: red;
+            `}
+          >
+            請先輸入正確的場所代碼
+          </li>
+        )}
       </ol>
     </div>
   );
