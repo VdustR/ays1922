@@ -124,6 +124,10 @@ function App({
     () => (fill ? `場所代碼: ${locationCode}\n${message}` : ""),
     [fill, locationCode]
   );
+  const outFileName = useMemo(
+    () => (fill ? `ays1922_${locationCode.split(" ").join("-")}.png` : ""),
+    [fill, locationCode]
+  );
   const [url, setUrl] = useState("");
   useEffect(() => {
     if (!fill) {
@@ -172,7 +176,7 @@ function App({
               alert("Blob missing");
               return;
             }
-            saveAs(blob, "ays1922.png");
+            saveAs(blob, outFileName);
           });
         }}
         maxLength={18}
