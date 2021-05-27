@@ -1,5 +1,4 @@
 import { css } from "@emotion/css";
-import chunk from "lodash/chunk";
 import { Fragment, useEffect, useMemo } from "react";
 import {
   BrowserRouter,
@@ -9,6 +8,7 @@ import {
   useHistory,
   useParams,
 } from "react-router-dom";
+import { formatDisplayLocationCode, formatLocationCode } from "utils";
 import Template from "./Template";
 import v1En from "./v1/en.jpeg";
 import v1Zh from "./v1/zh.jpeg";
@@ -28,14 +28,11 @@ function Home() {
   const history = useHistory();
   const { locationCode = "" } = useParams<{ locationCode: string }>();
   const displayLocationCode = useMemo(
-    () =>
-      chunk(locationCode.replace(/\s/g, "").split(""), 4)
-        .map((arr) => arr.join(""))
-        .join(" "),
+    () => formatDisplayLocationCode(locationCode),
     [locationCode]
   );
   const cleanLocationCode = useMemo(
-    () => locationCode.replace(/\s/g, ""),
+    () => formatLocationCode(locationCode),
     [locationCode]
   );
   const fill = displayLocationCode.length === 18;
@@ -71,13 +68,20 @@ function Home() {
           <input
             value={displayLocationCode}
             onChange={(e) => {
-              const str = e.target.value.replace(/\s/g, "");
+              const str = formatLocationCode(e.target.value);
               history.replace(`/h/${str}`);
             }}
             maxLength={18}
             placeholder="XXXX XXXX XXXX XXX"
             autoFocus
           />
+          <button
+            onClick={(e) => {
+              history.replace("/h");
+            }}
+          >
+            Clear
+          </button>
         </li>
         {fill ? (
           <li>

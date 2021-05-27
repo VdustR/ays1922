@@ -1,10 +1,10 @@
 import { css, cx } from "@emotion/css";
 import { saveAs } from "file-saver";
 import { toBlob } from "html-to-image";
-import chunk from "lodash/chunk";
 import QRCode from "qrcode";
 import { useEffect, useMemo, useState } from "react";
 import { useHistory, useParams } from "react-router-dom";
+import { formatDisplayLocationCode, formatLocationCode } from "utils";
 import escapeHtml from "utils/escape";
 
 const cssFrame = css`
@@ -119,19 +119,20 @@ function App({
   classNameCount,
 }: AppProps) {
   const history = useHistory();
-  const { locationCode: cleanLocationCode } =
+  const { locationCode: oriLocationCode } =
     useParams<{ locationCode: string }>();
+  const cleanLocationCode = useMemo(
+    () => formatLocationCode(oriLocationCode),
+    [oriLocationCode]
+  );
   useEffect(() => {
-    if (cleanLocationCode.length !== 15) {
+    if (!oriLocationCode.match(/^\d{15}$/)) {
       alert("請輸入正確的場所代碼");
       history.replace("/");
     }
-  }, [cleanLocationCode.length, history]);
+  }, [cleanLocationCode.length, history, oriLocationCode]);
   const locationCode = useMemo(
-    () =>
-      chunk(cleanLocationCode.replace(/\s/g, "").split(""), 4)
-        .map((arr) => arr.join(""))
-        .join(" "),
+    () => formatDisplayLocationCode(cleanLocationCode),
     [cleanLocationCode]
   );
   const fill = locationCode.length === 18;
